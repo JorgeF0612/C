@@ -1,7 +1,7 @@
 /*
    Jorge Felix
    Dr Vail
-   Olivet Nazarene
+   Olivet Nazarene University
    Lab_5
    Assignment:
    Write a C cross reference xref that prints a list of indentofiers in a source code file.[Done]
@@ -19,7 +19,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#define MAXWORD 100
+#define MAXWORD 100000
 #define BUFSIZE 100000
 #define FALSE   0
 #define TRUE    1
