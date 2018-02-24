@@ -14,7 +14,6 @@
 	or 
 	xref < [filename].c
 */
-
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -119,7 +118,8 @@ struct tnode *addtree(struct tnode *rt, char *wrd) {
 	}else{  rt -> right = addtree(rt -> right, wrd); }
 	return rt;
 }
-/* Prints tree in order */					void printTree(struct tnode *rt) {
+/* Prints tree in order */
+void printTree(struct tnode *rt) {
 	if(rt != NULL){
 		printTree( rt -> left  );
 		printf("%4d %s\n", rt -> line, rt -> word);
