@@ -21,8 +21,8 @@
 #include <unistd.h>
 #define MAXWORD 100
 #define BUFSIZE 100000
-#define FALSE 0
-#define TRUE 1
+#define FALSE   0
+#define TRUE    1
 
 int cLine    = 1;
 int bufferp  = 0;
@@ -38,10 +38,7 @@ struct tnode {
 char isspaceL(char c) {
 	if ( c == ' ' || c == '\f' || c == '\r' || c == '\t' || c == '\v'){ 
 		return 1;
-	}else{
-		return 0;
-
-	}
+	}else{  return 0; }
 }
 /* Gets next/word */
 int getWord(char *word, int lim) {
@@ -56,13 +53,11 @@ int getWord(char *word, int lim) {
 		if(!isalpha(c)){ *wrd = '\0'; return c; }
 	for(; --lim > 0; wrd++) {
 		if(!isalnum(*wrd = getch())){ ungetch(*wrd); break; }
-	}
-	*wrd = '\0';
+	} *wrd = '\0';
 	return word[0];
 }
 /* Gets data from buffer */
 int getch(void){ return (bufferp > 0) ? buffer[--bufferp] : getchar(); }
-
 /* Puts data into buffer */
 void ungetch( int c ){
 	if(bufferp >= BUFSIZE){ 
@@ -71,12 +66,11 @@ void ungetch( int c ){
 }
 /* Verifies we have have a datatype */
 int dataType( char *wrd ) {
+	char *dTypes[] = { "char", "double", "float", "int", "long", "short", };
 	int loc    = TRUE;
 	int stop   = 0;
 	int low    = 0;
 	int diff   = 0;
-	char *dTypes[] = { "char", "double", "float", 
-		           "int" , "long"  , "short", };
 	int high   = sizeof dTypes / sizeof dTypes[0] - 1;
 	int where  = ( high / 2 );	
 	if(wrd != NULL) {
@@ -104,7 +98,6 @@ int validIdentifier(char *str) {
 }
 /* Manages/Makes memory for tree node */
 struct tnode *talloc(void){ return(struct tnode *)malloc(sizeof(struct tnode)); }
-
 /* Adds a tree node */   
 struct tnode *addtree(struct tnode *rt, char *wrd) {
 	int cdt;
@@ -133,9 +126,7 @@ int main(void) {
 	while(getWord(word, MAXWORD) != EOF) {
 		if (dataType(word) == FALSE) {
 			if (getWord(word, MAXWORD) != EOF) {
-				if(isalpha(word[0])) {
-					root = addtree(root, word);
-				}
+				if(isalpha(word[0])){ root = addtree(root, word); }
 			}
 		}
 	}
