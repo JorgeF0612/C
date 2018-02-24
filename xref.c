@@ -115,7 +115,7 @@ struct tnode *addtree(struct tnode *rt, char *wrd) {
 void printTree(struct tnode *rt) {
 	if(rt != NULL){
 		printTree( rt -> left  );
-		printf("%4d %s\n", rt -> line, rt -> word);
+		printf("  %4d     %s\n", rt -> line, rt -> word);
 		printTree( rt -> right );
 	}
 }
@@ -130,7 +130,9 @@ int main(void) {
 			}
 		}
 	}
-	printf("Line|Word\n");
+	printf("    XREF Utility\n");
+	printf("-- Ascending Order --\n");
+	printf("   Line | Identifier\n");
 	printTree(root);
 	exit(0);
 }
