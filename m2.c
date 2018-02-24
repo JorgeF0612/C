@@ -72,9 +72,9 @@ int dataType( char *wrd ) {
 			diff = strcmp(dTypes[where], wrd);
 			if( 0 == diff) { loc = FALSE;} 
 			if( 0 < diff ) {
-				high    = where - 1;
+				high   = where - 1;
 			}else{
-				low     = where + 1;
+				low    = where + 1;
 			}
 			if( high <= ( low - 1 )) {
 				stop   = 1;
@@ -101,7 +101,7 @@ struct tnode *addtree(struct tnode *rt, char *wrd) {
 		rt -> word = strdup(wrd);
 		rt -> line = cLine;
 		rt -> left = rt -> right = NULL;
-	}else if(( cdt = strcmp(wrd, rt -> word )) < 0 ){
+	}else if(( cdt = strcmp(wrd,  rt -> word )) < 0 ){
 		rt -> left  = addtree(rt -> left, wrd);
 	}else{  rt -> right = addtree(rt -> right, wrd); }
 	return rt;
