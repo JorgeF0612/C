@@ -4,11 +4,10 @@
    Olivet Nazarene University
    Lab_5
    Assignment:
-   Write a C cross reference xref that prints a list of indentofiers in a source code file.[Done]
+   Write a C cross reference xref that prints a list of identifiers in a source code file.[Done]
   	- Sort the list of identifiers into asc order. [Done]
-        - For each identidentifier, list the line #'s on which it occurs. [Done]
+        - For each identifier, list the line #'s on which it occurs. [Done]
         - Do not print C reserved words, only user defined words. [Done]	
-
    How to run:
    	./xref < [filename].c
 	or 
@@ -62,7 +61,7 @@ int getch( void ){ return (bufferp > Z) ? buffer[--bufferp] : getchar(); }
 /* Puts data into buffer */
 void ungetch( int c ){
 	if(bufferp >= BUFSIZE){ 
-		printf("ERROR: cant get, size to big \n");
+		printf("Sorry cant get, size to big \n");
 	}else{	buffer[bufferp++] = c; }
 }
 /* Verifies we have have a datatype */
@@ -89,7 +88,7 @@ int dataType( char *wrd ){
 /* Makes sure that there is a valid Identifier */
 int validIdentifier( char *str ){
     	if(isdigit(str[Z])){    return T; }
-	if(!(isdigit(str[Z]))){ return F; }
+	    if(!(isdigit(str[Z]))){ return F; }
 }
 /* Manages/Makes memory for tree node */
 struct tnode *talloc( void ){ return(struct tnode *)malloc(sizeof(struct tnode)); }
