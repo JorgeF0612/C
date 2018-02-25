@@ -68,7 +68,7 @@ void ungetch( int c ){
 /* Verifies we have have a datatype */
 int dataType( char *wrd ){
 	char *dTypes[] = { "char", "double", "float", "int", "long", "short", };
-	int loc    = Z;
+	int loc    = T;
 	int stop   = Z;
 	int low    = Z;
 	int diff   = Z;
