@@ -83,7 +83,7 @@ int main( int argc, char *argv[] ){
 		printf("What you enter here will be copied aka echoed: \n");
 		copy();
 	}else if( argc <= 2 ){                                                  /* If two arguments print bad inputs */
-		if(strcmp(argv[1], "-i")== 0 ){
+		if(strcmp(argv[1], "-i") == 0 ){
 			printf("Bad Input: -i needs file name");
 		}else if(strcmp(argv[1], "-o") == 0){
 			printf("Bad Input: -o needs a file name");
@@ -103,7 +103,7 @@ int main( int argc, char *argv[] ){
 			if(strcmp(argv[3], "-o") == 0){	  			
 				readWrite(argv[2], argv[4]);  			/* Go to readWrite, pass first & second filename */
 			}
-		}else if(strcmp(argv[1], "-o") ==0){				/* detect that -o & -o is present (in that order) */
+		}else if(strcmp(argv[1], "-o") == 0){				/* detect that -o & -i is present (in that order) */
 			if(strcmp(argv[3], "-i") == 0){				
 				readWrite(argv[4], argv[2]);			/* Go to readWrite, pass second & first filename */
 			}
