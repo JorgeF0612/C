@@ -79,10 +79,10 @@ void writeIn(char* filename1){
 	fclose(fp);
 }
 int main( int argc, char *argv[] ){
-	if(argc <= 1){
-		printf("copy\n");
+	if(argc <= 1){ 								/* If one arguments go to copy */ 
+		printf("What you enter here will be copied aka echoed: \n");
 		copy();
-	}else if( argc <= 2 ){
+	}else if( argc <= 2 ){                                                  /* If two arguments print bad inputs */
 		if(strcmp(argv[1], "-i")== 0 ){
 			printf("Bad Input: -i needs file name");
 		}else if(strcmp(argv[1], "-o") == 0){
@@ -90,25 +90,25 @@ int main( int argc, char *argv[] ){
 		}else{
 			printf("Bad Input: incorrect input\n");
 		}
-	}else if( argc <= 3 ){
-		if(strcmp(argv[1], "-i") == 0){
+	}else if( argc <= 3 ){                                                  /* If three arguments detect -i & -o */
+		if(strcmp(argv[1], "-i") == 0){					/* If -i is present go to readOutput */
 			readOutput(argv[2]);
-		}else if(strcmp(argv[1], "-o") == 0){
+		}else if(strcmp(argv[1], "-o") == 0){				/* If -o is present go to writeIn */
 			writeIn(argv[2]);
 		}
-	}else if(argc <= 4){
+	}else if(argc <= 4){							/* If only four arguments print missing extra arg */
 		printf("Missing an extra argument\n");
-	}else if(argc <= 5){
-		if(strcmp(argv[1], "-i") == 0){
-			if(strcmp(argv[3], "-o") == 0){
-				readWrite(argv[2], argv[4]);
+	}else if(argc <= 5){                                                    /* If five arguments */
+		if(strcmp(argv[1], "-i") == 0){					/* detect that -i & -o is present (in that order)*/
+			if(strcmp(argv[3], "-o") == 0){	  			
+				readWrite(argv[2], argv[4]);  			/* Go to readWrite, pass first & second filename */
 			}
-		}else if(strcmp(argv[1], "-o") ==0){
-			if(strcmp(argv[3], "-i") == 0){
-				readWrite(argv[4], argv[2]);
+		}else if(strcmp(argv[1], "-o") ==0){				/* detect that -o & -o is present (in that order) */
+			if(strcmp(argv[3], "-i") == 0){				
+				readWrite(argv[4], argv[2]);			/* Go to readWrite, pass second & first filename */
 			}
 		}
-	}else if(argc > 5){
+	}else if(argc > 5){							/* To many arguments */
 		printf("Way to many args \n");
 	}
 		return 0;

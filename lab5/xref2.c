@@ -65,15 +65,18 @@ void copy(){
 	fgets(words, size, stdin);
 	fprintf(stdout, "%s" , words);
 }
-
+/* 
+	@argc counts & handles the arguments 
+	@argv handles the actually word
+*/
 int main( int argc, char *argv[] ){
-	if(argc <= 1){
-		copy();
-	}else if( argc <= 2 ){
+	if(argc <= 1){ 				/* If one arguments go to copy */
+		copy(); 
+	}else if( argc <= 2 ){ 			/* If two arguments go to readOutput */
 		readOutput(argv[1]);
-	}else if( argc <= 3 ){	
+	}else if( argc <= 3 ){			/* If three arguments go to readwrite */
 		readWrite(argv[1], argv[2]);
-	}else if(argc > 3){
+	}else if(argc > 3){			/* If more than three arguments, print it out */
 		printf("Way to many args \n");
 	}
 		return 0;
